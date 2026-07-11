@@ -4,6 +4,19 @@ Nedra Lindsey
 Module 3B - Create Form
 GitHub: https://github.com/YOUR-USERNAME/cs85-module3b-createform
  */
+
+if (isset($_POST['submit'])) {
+    $fullName = $_POST['fullName'];
+    $email = $_POST['email'];
+    $topic = $_POST['topic'];
+    $message = $_POST['message'];
+    
+    echo "<h3>Form Submitted Successfully!</h3>";
+    echo "<p>Full Name: " . $fullName . "</p>";
+    echo "<p>Email: " . $email . "</p>";
+    echo "<p>Topic: " . $topic . "</p>";
+    echo "<p>Message: " . $message . "</p>";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +37,7 @@ GitHub: https://github.com/YOUR-USERNAME/cs85-module3b-createform
         <label for="topic">Favorite Houseplant:</label><br>
         <input type="text" id="topic" name="topic" required><br><br>
         
-        <label for="message">Message (50-150 words):</label><br>
+        <label for="message">Message (5-150 words):</label><br>
         <textarea id="message" name="message" rows="5" cols="50" required></textarea><br><br>
         
         <input type="submit" name="submit" value="Send Message">
