@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $wordCount = str_word_count($message);
     if ($wordCount < 5 || $wordCount > 150) {
-        $errors[] = "Your message can be between 5 and 150 words. (You wrote $wordCount words)";
+        $errors[] = "Please leave a message between 5 and 150 words. (You wrote $wordCount words)";
     }
     
       if (empty($errors)) {
