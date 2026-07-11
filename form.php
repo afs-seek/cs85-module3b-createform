@@ -3,6 +3,14 @@
 Nedra Lindsey
 Module 3B - Create Form
 GitHub: https://github.com/YOUR-USERNAME/cs85-module3b-createform
+
+Output predictions: The basic HTML form will show, requesting information from user. User will submit information and the confirmation of receipt will appear on the screen.
+
+What do I expect to see in $_POST: I should see fullName, email, topic, and a message.
+
+Reflections: It's important to sanitize the output so that the site is no vulnerable to attack.
+
+
  */
 
 $showForm = true;
