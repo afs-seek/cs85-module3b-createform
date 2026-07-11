@@ -5,17 +5,30 @@ Module 3B - Create Form
 GitHub: https://github.com/YOUR-USERNAME/cs85-module3b-createform
  */
 
-if (isset($_POST['submit'])) {
-    $fullName = $_POST['fullName'];
-    $email = $_POST['email'];
-    $topic = $_POST['topic'];
-    $message = $_POST['message'];
+$showForm = true;
+$errors = [];
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    echo "<h3>Form Submitted Successfully!</h3>";
-    echo "<p>Full Name: " . $fullName . "</p>";
-    echo "<p>Email: " . $email . "</p>";
-    echo "<p>Topic: " . $topic . "</p>";
-    echo "<p>Message: " . $message . "</p>";
+    
+    $fullName = htmlspecialchars($_POST['fullName'], ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
+    $topic = htmlspecialchars($_POST['topic'], ENT_QUOTES, 'UTF-8');
+    $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+    
+    
+    $wordCount = str_word_count($message);
+    if ($wordCount < 5 || $wordCount > 150) {
+        $errors[] = "Message must be between 50 and 150 words. (You wrote $wordCount words)";
+    }
+    
+      if (empty($errors)) {
+        $showForm = false;
+        echo "<h2>Thanks, $fullName.</h2>";
+        echo "<p>I got your information about $topic.</p>";
+        echo "<p>I'll respond to you at $email.</p>";
+    }
 }
 ?>
 <!DOCTYPE html>
